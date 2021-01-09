@@ -6,6 +6,8 @@ function Home(props) {
         <div className="container">
             <div className="row">
                 <Carousel/>
+            </div>
+            <div className="row">
                 <Example/>
             </div>
         </div>

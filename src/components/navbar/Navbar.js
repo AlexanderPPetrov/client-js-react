@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import {Link} from 'react-router-dom';
 import { ReactComponent as Logo } from '../../logo.svg'
 
 const Example = (props) => {
@@ -15,20 +16,25 @@ const Example = (props) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+    // TODO create an array representing NavLink items in Navbar.js 
+    // Render with map function.   
   return (
     <Navbar color="light" light expand="md">
         <div className="container">
-            <NavbarBrand href="/">
+            <NavbarBrand tag={Link} to="/">
                 <Logo/>
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                 <NavItem>
-                    <NavLink href="/components/">Home</NavLink>
+                    <NavLink tag={Link} to="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="">Products</NavLink>
+                    <NavLink tag={Link} to="/products">Products</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={Link} to="/contact">Contact</NavLink>
                 </NavItem>
                 </Nav>
             </Collapse>
