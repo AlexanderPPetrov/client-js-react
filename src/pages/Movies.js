@@ -1,30 +1,10 @@
-import React, { useEffect, useState} from "react";
-import networkClient from '../network/network-client';
 import Movie from '../components/movie/Movie';
+import SelectYear from '../components/filters/SelectYear';
+import {useSelector} from "react-redux";
 
 function Movies(props) {
 
-    const [movies, setMovies] = useState([]);
-
-    const loadMovies = () => {
-        networkClient.get(
-            'discover/movie',
-             {
-                 year: 2020,
-                 page: 1,
-             }, 
-             response => {
-                setMovies(response.results)
-             },
-             error => {
-                console.log(error);
-             }
-        )
-    }
-
-    useEffect(() => {
-        loadMovies();
-    }, []);
+    const movies = useSelector(state => state.movies);
 
     const getMovies = () => {
         const movieList = movies.map(movie => {
@@ -40,6 +20,11 @@ function Movies(props) {
 
     return <>
         <div className="container">
+            <div className="row">
+                <div className="col-md-4">
+                    <SelectYear/>
+                </div>
+            </div>
             <div className="row">
                 {getMovies()}
             </div>
