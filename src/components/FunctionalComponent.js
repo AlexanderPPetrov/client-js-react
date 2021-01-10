@@ -27,19 +27,21 @@ function FunctionalComponent(props) {
         <InputGroup>
             <InputGroupAddon addonType="prepend">
                 <Button 
-                    className="d-flex justify-content-center align-content-center"
                     color="success" 
                     onClick={() => setCount(count + 1)}>
-                    <FontAwesomeIcon icon={faPlusCircle}/>
+                    <div className="d-flex justify-content-center align-content-center">
+                        <FontAwesomeIcon icon={faPlusCircle}/>
+                    </div>
                 </Button>
             </InputGroupAddon>
             <Input value={count} onChange={handleChange}/>
             <InputGroupAddon addonType="append">
                 <Button 
-                    className="d-flex justify-content-center align-content-center"
                     color="danger" 
                     onClick={() => setCount(count - 1)}>
-                    <FontAwesomeIcon icon={faMinusCircle}/>
+                    <div className="d-flex justify-content-center align-content-center">
+                        <FontAwesomeIcon icon={faMinusCircle}/>
+                    </div>
                 </Button>
             </InputGroupAddon>
         </InputGroup>

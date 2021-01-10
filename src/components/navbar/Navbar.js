@@ -28,13 +28,16 @@ const Example = (props) => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                 <NavItem>
-                    <NavLink tag={Link} to="/">Home</NavLink>
+                    <NavLink tag={Link} to="/">Movies</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink tag={Link} to="/products">Products</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink tag={Link} to="/contact">Contact</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={Link} to="/example">Example</NavLink>
                 </NavItem>
                 </Nav>
             </Collapse>
