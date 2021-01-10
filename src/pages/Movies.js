@@ -1,5 +1,5 @@
 import Movie from '../components/movie/Movie';
-import SelectYear from '../components/filters/SelectYear';
+import Filters from '../components/filters/Filters';
 import {useSelector} from "react-redux";
 
 function Movies(props) {
@@ -20,11 +20,7 @@ function Movies(props) {
 
     return <>
         <div className="container">
-            <div className="row">
-                <div className="col-md-4">
-                    <SelectYear/>
-                </div>
-            </div>
+            <Filters/>
             <div className="row">
                 {getMovies()}
             </div>

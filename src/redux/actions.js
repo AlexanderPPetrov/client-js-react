@@ -5,17 +5,23 @@ export function setMovies(movies){
     return {type: actions.SET_MOVIES, payload: movies};
 }
 
-export async function getMovies(dispatch){
+export const getMovies = params => async dispatch => {
     try {
         const response = await networkClient.get(
             'discover/movie',
-            {
-                year: 2020,
-                page: 1,
-            }
+            params,
         )
         dispatch(setMovies(response.results));
     } catch (error) {
         console.log(error)
     }
+}
+
+export function setSelectedYear(year){
+    console.log(year);
+    return {type: actions.SET_SELECTED_YEAR, payload: year};
+}
+
+export function setSelectedGenres(genres){
+    return {type: actions.SET_SELECTED_GENRES, payload: genres};
 }
