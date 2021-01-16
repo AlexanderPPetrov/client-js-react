@@ -6,6 +6,7 @@ import {
     CardTitle,
     Button,
   } from 'reactstrap';
+import {Link} from 'react-router-dom';
 import constants from '../../constants';
 
 const MovieListItem = props => {
@@ -32,7 +33,9 @@ const MovieListItem = props => {
                 <CardBody>
                   <CardTitle tag="h5" className="text-truncate">{props.title}</CardTitle>
                   <CardText className="movie-description">{props.overview}</CardText>
-                  <Button>Movie details</Button>
+                  <Link to={`/movie/${props.id}`} className="btn btn-secondary">
+                      Movie details
+                  </Link>
                 </CardBody>
               </div>
             </div>
