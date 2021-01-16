@@ -11,6 +11,17 @@ function movies(state = [], action) {
     }
 }
 
+function movie(state = {}, action) {
+    switch(action.type) {
+        case actions.SET_MOVIE: {
+            return action.payload
+        }
+        default: 
+            return state;
+    }
+}
+
+
 function genres(state = [], action) {
     switch(action.type) {
         case actions.SET_GENRES: {
@@ -58,4 +69,4 @@ function selectedFilters(state = {
     }
 }
 
-export default combineReducers({movies, genres, listView, selectedFilters});
+export default combineReducers({movies, movie, genres, listView, selectedFilters});

@@ -3,6 +3,7 @@ import Products from './pages/Products';
 import DefaultLayout from './layouts/Default';
 import Contact from './pages/Contact';
 import Movies from './pages/Movies';
+import MovieDetails from './pages/MovieDetails';
 
 import {
   BrowserRouter as Router,
@@ -16,6 +17,12 @@ const routes = [
     exact: true,
     main: () => <DefaultLayout>
       <Movies></Movies>
+    </DefaultLayout>
+  },
+  {
+    path: '/movie/:id',
+    main: () => <DefaultLayout>
+      <MovieDetails></MovieDetails>
     </DefaultLayout>
   },
   {

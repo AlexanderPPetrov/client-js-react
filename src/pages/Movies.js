@@ -31,6 +31,7 @@ function Movies(props) {
             const movieList = movies.map(movie => {
                 return <MovieListItem
                     key={movie.id}
+                    id={movie.id}
                     title={movie.title}
                     overview={movie.overview}
                     poster_path={movie.poster_path}
@@ -42,6 +43,7 @@ function Movies(props) {
         const movieGridList = movies.map(movie => {
             return <MovieGridItem
                 key={movie.id}
+                id={movie.id}
                 title={movie.title}
                 overview={movie.overview}
                 poster_path={movie.poster_path}
