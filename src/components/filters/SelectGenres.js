@@ -1,11 +1,20 @@
+import React, { useEffect } from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedGenres } from '../../redux/actions';
+import { getGenres, setSelectedGenres } from '../../redux/actions';
 import { createSelector } from 'reselect';
-
 const SelectGenres = (props) => {
 
     const dispatch = useDispatch();
+
+    const genres = useSelector(state => state.genres);
+
+    useEffect(() => {
+        dispatch(getGenres({
+            language: 'bg-BG',
+        }));
+    }, []);
+
     const selectedFilters = useSelector(state => state.selectedFilters)
 
     const inputOnChange = (event) => {
@@ -34,14 +43,8 @@ const SelectGenres = (props) => {
 
     const isChecked = (genreId) => {
         const isChecked = isGenreSelected(selectedFilters, genreId);
-        console.log('isChecked', genreId);
         return isChecked;
     }
-
-    // TODO get from 
-    // https://api.themoviedb.org/3/genre/movie/list?api_key=ca3d69ee336e43d8099727f0d7ce3859&language=en-US
-   
-    const genres = [{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]
 
     const getGenresCheckboxes = () => {
         const genresCheckboxes = genres.map(genre => {

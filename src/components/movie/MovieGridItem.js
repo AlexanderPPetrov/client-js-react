@@ -8,7 +8,7 @@ import {
   } from 'reactstrap';
 import constants from '../../constants';
 
-const Movie = props => {
+const MovieGridItem = props => {
 
     const getMovieImage = () => {
       if(!props.poster_path){
@@ -35,5 +35,5 @@ const Movie = props => {
     );
   };
   
-export default Movie;
+export default MovieGridItem;
   

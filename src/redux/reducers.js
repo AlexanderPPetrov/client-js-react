@@ -11,24 +11,26 @@ function movies(state = [], action) {
     }
 }
 
-// function selectedYear(state = '2021', action) {
-//     switch(action.type) {
-//         case actions.SET_SELECTED_YEAR: {
-//             return action.payload
-//         }
-//         default: 
-//             return state;
-//     }
-// }
-// function selectedGenres(state = [], action) {
-//     switch(action.type) {
-//         case actions.SET_SELECTED_GENRES: {
-//             return [...action.payload]
-//         }
-//         default: 
-//             return state;
-//     }
-// }
+function genres(state = [], action) {
+    switch(action.type) {
+        case actions.SET_GENRES: {
+            return [...action.payload]
+        }
+        default: 
+            return state;
+    }
+}
+
+function listView(state = false, action) {
+    switch(action.type) {
+        case actions.SET_LIST_VIEW: {
+            return action.payload
+        }
+        default: 
+            return state;
+    }
+}
+
 
 function selectedFilters(state = {
     selectedYear: '2021',
@@ -56,4 +58,4 @@ function selectedFilters(state = {
     }
 }
 
-export default combineReducers({movies, selectedFilters});
+export default combineReducers({movies, genres, listView, selectedFilters});
