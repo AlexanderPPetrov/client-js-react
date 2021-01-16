@@ -18,7 +18,6 @@ export const getMovies = params => async dispatch => {
 }
 
 export function setSelectedYear(year){
-    console.log(year);
     return {type: actions.SET_SELECTED_YEAR, payload: year};
 }
 

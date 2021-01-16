@@ -11,23 +11,49 @@ function movies(state = [], action) {
     }
 }
 
-function selectedYear(state = '2021', action) {
+// function selectedYear(state = '2021', action) {
+//     switch(action.type) {
+//         case actions.SET_SELECTED_YEAR: {
+//             return action.payload
+//         }
+//         default: 
+//             return state;
+//     }
+// }
+// function selectedGenres(state = [], action) {
+//     switch(action.type) {
+//         case actions.SET_SELECTED_GENRES: {
+//             return [...action.payload]
+//         }
+//         default: 
+//             return state;
+//     }
+// }
+
+function selectedFilters(state = {
+    selectedYear: '2021',
+    selectedGenres: [],
+}, action) {
     switch(action.type) {
         case actions.SET_SELECTED_YEAR: {
-            return action.payload
+            return {
+                ...state, 
+                ...{
+                    selectedYear: action.payload,
+                }
+            }
         }
-        default: 
-            return state;
-    }
-}
-function selectedGenres(state = [], action) {
-    switch(action.type) {
         case actions.SET_SELECTED_GENRES: {
-            return [...action.payload]
+            return {
+                ...state,
+                ...{
+                    selectedGenres: [...action.payload]
+                }
+            }
         }
         default: 
             return state;
     }
 }
 
-export default combineReducers({movies, selectedYear, selectedGenres});
+export default combineReducers({movies, selectedFilters});

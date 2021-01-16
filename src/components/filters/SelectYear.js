@@ -1,27 +1,11 @@
-import React, {useEffect, useCallback} from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
-import { getMovies, setSelectedYear } from '../../redux/actions';
+import { setSelectedYear } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SelectYear = (props) => {
 
-    const selectedYear = useSelector(state => state.selectedYear);
-    const selectedGenres = useSelector(state => state.selectedGenres);
-
+    const selectedYear = useSelector(state => state.selectedFilters.selectedYear);
     const dispatch = useDispatch();
-
-    const loadMovies = useCallback(() => {
-        dispatch(getMovies({
-            year: selectedYear,
-            page: 1,
-            with_genres: selectedGenres.toString(),
-        }));
-      }, [dispatch, selectedYear, selectedGenres]);
-    
-
-    useEffect(() => {
-        loadMovies();
-    }, [loadMovies]);
 
     const changeSelectedYear = (event) => {
         dispatch(setSelectedYear(event.target.value));
