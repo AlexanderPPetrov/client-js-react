@@ -21,11 +21,13 @@ function MovieDetails(props) {
     const dispatch = useDispatch();
     const { id } = useParams();
    
+    // Equivalent to componentDidMount
     useEffect(()=>{
         dispatch(getMovie({
             movieId: id
         }))
 
+        //Equivalent to componentWillUnmount
         return () => {
             dispatch(setMovie({}))
         }
