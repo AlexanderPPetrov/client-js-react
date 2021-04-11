@@ -4,6 +4,7 @@ import DefaultLayout from './layouts/Default';
 import Contact from './pages/Contact';
 import Movies from './pages/Movies';
 import MovieDetails from './pages/MovieDetails';
+import Games from './pages/Games';
 
 import {
   BrowserRouter as Router,
@@ -42,6 +43,12 @@ const routes = [
     main: () => <DefaultLayout>
       <Home></Home>
 
+    </DefaultLayout>
+  },
+  {
+    path: '/games',
+    main: () => <DefaultLayout>
+      <Games></Games>
     </DefaultLayout>
   },
 ]
