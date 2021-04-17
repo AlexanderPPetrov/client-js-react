@@ -14,7 +14,7 @@ import { setContext } from '@apollo/client/link/context';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: 'https://graphql-api-2021.herokuapp.com/graphql',
   credentials: 'same-origin'
 });
 
